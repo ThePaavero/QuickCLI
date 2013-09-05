@@ -1,9 +1,10 @@
 <?php
 
-require 'cli.php';
+require 'quickcli.php';
 
-$cli = new QuickCLI\CLI('Example CLI Script');
+$cli = new QuickCLI\QuickCLI('Demo script');
 
+$cli->line('Welcome to ' . $cli->getAppName(), 2, 'light_cyan');
 $cli->line('Simple line');
 $cli->line('Simple line with two EOLs', 2);
 $cli->line('Simple line with one EOL and colored red!', 1, 'red');
