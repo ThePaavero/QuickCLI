@@ -5,6 +5,7 @@ namespace QuickCLI;
 /**
  * Simple helper class for quick CLI scripts
  * @author Pekka S. <nospam@astudios.org>
+ * @link https://github.com/ThePaavero/QuickCLI
  */
 class QuickCLI {
 
