@@ -7,7 +7,16 @@ $cli = new QuickCLI\QuickCLI('Demo script');
 $cli->line('Welcome to ' . $cli->getAppName(), 2, 'light_cyan');
 $cli->line('Simple line');
 $cli->line('Simple line with two EOLs', 2);
-$cli->line('Simple line with one EOL and colored red!', 1, 'red');
+$cli->line('Simple line with one EOL and colored cyan!', 1, 'cyan');
+
+$options = array(
+		'flag_a' => $cli->getFlag('a')
+	);
+
+if($options['flag_a'] === true)
+{
+	$cli->line('-a was used', 1, 'gray');
+}
 
 $user_name = $cli->prompt('Enter your name', true);
 

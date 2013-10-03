@@ -41,6 +41,32 @@ class QuickCLI {
 	}
 
 	/**
+	 * Get short option
+	 * @param  string $str              e.g. 'a'
+	 * @param  string $mandatory_string e.g. 'Please use flag -a'
+	 * @return boolean
+	 */
+	public function getFlag($str)
+	{
+		$opts = getopt($str);
+		$boolean = isset($opts[$str]);
+
+		return $boolean;
+	}
+
+	/**
+	 * Get option with value
+	 * @param  string $str e.g. 'a'
+	 * @return string
+	 * @todo This shit isn't working properly
+	 */
+	public function getOptionWithValue($str)
+	{
+		$opts = getopt($str . ':');
+		return isset($opts[$str]) ? $opts[$str] : '';
+	}
+
+	/**
 	 * Write line to console
 	 * @param  string  $string         e.g. 'App running...'
 	 * @param  integer $newline_amount
