@@ -9,19 +9,28 @@ Super simple toolset for quick PHP CLI scripts
 
     <?php
 
-    require 'quickcli.php';
+	require 'quickcli.php';
 
-    $cli = new QuickCLI\QuickCLI('Demo script');
+	$cli = new QuickCLI\QuickCLI('Demo script');
 
-    $cli->line('Welcome to ' . $cli->getAppName(), 2, 'light_cyan');
-    $cli->line('Simple line');
-    $cli->line('Simple line with two EOLs', 2);
-    $cli->line('Simple line with one EOL and colored red!', 1, 'red');
+	$cli->line('Welcome to ' . $cli->getAppName(), 2, 'light_cyan');
+	$cli->line('Simple line');
+	$cli->line('Simple line with two EOLs', 2);
+	$cli->line('Simple line with one EOL and colored cyan!', 1, 'cyan');
 
-    $user_name = $cli->prompt('Enter your name', true);
+	$options = array(
+			'flag_a' => $cli->getFlag('a')
+		);
 
-    $cli->line('Hey, ' . $user_name . '!', 2, 'green');
+	if($options['flag_a'] === true)
+	{
+		$cli->line('-a was used', 1, 'gray');
+	}
+
+	$user_name = $cli->prompt('Enter your name', true);
+
+	$cli->line('Hey, ' . $user_name . '!', 2, 'green');
 
 _...produces..._
 
-![Screenshot](http://i.imgur.com/Ke7S3Lm.png)
+![Screenshot](http://i.imgur.com/RDYVP66.png)
